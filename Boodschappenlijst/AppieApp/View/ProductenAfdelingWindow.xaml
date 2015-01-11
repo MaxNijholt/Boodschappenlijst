@@ -1,0 +1,30 @@
+﻿<UserControl x:Class="AppieApp.View.ProductenAfdelingWindow"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             Width="400"
+             mc:Ignorable="d">
+        <Grid Background="White">
+            <StackPanel Margin="5,5,5,5">
+                <TextBlock Text="Product per Afdeling" Margin="5"  FontSize="28" HorizontalAlignment="Center"/>
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="*" />
+                    </Grid.ColumnDefinitions>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="25" />
+                        <RowDefinition Height="300"/>
+                    </Grid.RowDefinitions>
+                    <TextBlock Text="Product" Grid.Column="1" Grid.Row="0" HorizontalAlignment="Center"/>
+                    <TextBlock Text="Afdeling" Grid.Column="0" Grid.Row="0" HorizontalAlignment="Center"/>
+                    <ListBox Grid.Column="0" Grid.Row="1" ItemsSource="{Binding AfdelingVMen}" DisplayMemberPath="Naam" SelectedItem="{Binding AfdelingVM}">
+                    </ListBox>
+                    <ListBox Grid.Column="1" Grid.Row="1" ItemsSource="{Binding Path=AfdelingVM.Producten}" DisplayMemberPath="Naam">
+                    </ListBox>
+                </Grid>
+
+            </StackPanel>
+        </Grid>
+</UserControl>

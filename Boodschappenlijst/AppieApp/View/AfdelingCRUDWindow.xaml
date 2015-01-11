@@ -1,0 +1,40 @@
+﻿<UserControl x:Class="AppieApp.View.AfdelingCRUDWindow"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             mc:Ignorable="d">
+    <Grid Background="White">
+        <StackPanel Margin="5, 5, 5, 5">
+            <TextBlock Text="Afdelingen" Margin="5" FontSize="20" />
+                
+            <Grid Margin="5, 20, 0, 0">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="75" />
+                    <ColumnDefinition Width="*" />
+                </Grid.ColumnDefinitions>
+
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="25" />
+                    <RowDefinition Height="25" />
+                </Grid.RowDefinitions>
+
+                <TextBlock Text="Naam:" Grid.Column="0" Grid.Row="0" />
+                <TextBox MaxLength="50" Grid.Column="1" Grid.Row="0"  Text="{Binding AfdelingVM.Naam, Mode=TwoWay}" />
+            </Grid>
+
+            <DataGrid ItemsSource="{Binding Afdelingen}" IsReadOnly="True" AutoGenerateColumns="False" SelectedItem="{Binding AfdelingVM}" MaxWidth="500" Height="300">
+                <DataGrid.Columns>
+                    <DataGridTextColumn Header="Naam" Binding="{Binding Naam}" Width="*" />
+                </DataGrid.Columns>
+            </DataGrid>
+
+            <Grid Margin="5, 10, 5, 5">
+                <Button Content="Toevoegen" Command="{Binding CreateAfdeling}" Width="100" Height="30" HorizontalAlignment="Left" />
+                <Button Content="Wijzigen" Command="{Binding EditAfdeling}" Width="100" Height="30" HorizontalAlignment="Center" Margin="0, 0, 125, 0"/>
+                <Button Content="Wissen" Command="{Binding ClearAfdeling}" Width="100" Height="30" HorizontalAlignment="Center" Margin="125, 0, 0, 0"/>
+                <Button Content="Verwijderen" Command="{Binding DeleteAfdeling}" Width="100" Height="30" HorizontalAlignment="Right" />
+            </Grid>
+        </StackPanel>
+    </Grid>
+</UserControl>

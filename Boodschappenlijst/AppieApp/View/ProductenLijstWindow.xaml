@@ -1,0 +1,52 @@
+﻿<UserControl x:Class="AppieApp.View.ProductenLijstWindow"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             Width="600"
+             mc:Ignorable="d">
+    <Grid Background="White">
+        <StackPanel Margin="5,5,5,5">
+            <TextBlock Text="Boodschappen" Margin="5"  FontSize="28" HorizontalAlignment="Center"/>
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="*" />
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="25" />
+                    <RowDefinition Height="360"/>
+                </Grid.RowDefinitions>
+                <TextBlock Text="Boodschappen" Grid.Column="2" Grid.Row="0" HorizontalAlignment="Center"/>
+                <TextBlock Text="Producten" Grid.Column="0" Grid.Row="0" HorizontalAlignment="Center"/>
+                <TextBlock Text="Merken" Grid.Column="1" Grid.Row="0" HorizontalAlignment="Center"/>
+                <ListBox Grid.Column="0" Grid.Row="1" ItemsSource="{Binding ProductVMen}" DisplayMemberPath="Naam" SelectedItem="{Binding ProductVM}">
+                </ListBox>
+                <ListBox Grid.Column="1" Grid.Row="1" ItemsSource="{Binding MerkVMen}" DisplayMemberPath="Naam" SelectedItem="{Binding MerkVM}">
+                </ListBox>
+                <ListBox Grid.Column="2" Grid.Row="1" ItemsSource="{Binding Boodschappen}" DisplayMemberPath="Naam" SelectedItem="{Binding BoodschapVM}">
+                </ListBox>
+            </Grid>
+            <Grid>
+                <TextBlock Text="Totale prijs: €" FontSize="20" HorizontalAlignment="Left" />
+                <TextBlock Text="{Binding Prijs}" FontSize="20" HorizontalAlignment="Center"/>
+                <Button Content="PDF" HorizontalAlignment="Left" Margin="505,2,0,0" VerticalAlignment="Top" Width="75" Command="{Binding CreatePDF}"/>
+            </Grid>
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="*" />
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="40" />
+                </Grid.RowDefinitions>
+                <Button Content="Product toevoegen" Command="{Binding AddProduct}" Width="150" Height="30" HorizontalAlignment="Center" Margin="5" />
+                <Button Grid.Column="1" Content="Merk toevoegen" Command="{Binding AddMerk}" Width="150" Height="30" HorizontalAlignment="Center" Margin="5" />
+                <Button Grid.Column="2" Content="Verwijderen" Command="{Binding RemoveProduct}" Width="150" Height="30" HorizontalAlignment="Center" Margin="5" />
+            </Grid>
+            
+        </StackPanel>
+    </Grid>
+</UserControl>

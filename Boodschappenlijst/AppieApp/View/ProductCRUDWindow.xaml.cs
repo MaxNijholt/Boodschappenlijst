@@ -13,13 +13,13 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace Boodschappenlijst {
-	/// <summary>
-	/// Interaction logic for MainWindow.xaml
-	/// </summary>
-	public partial class MainWindow : Window {
-		public MainWindow ( ) {
-			InitializeComponent( );
-		}
-	}
+namespace AppieApp.View {
+    /// <summary>
+    /// Interaction logic for ProductCRUDWindow.xaml
+    /// </summary>
+    public partial class ProductCRUDWindow : UserControl {
+        public ProductCRUDWindow() {
+            InitializeComponent();
+        }
+    }
 }
